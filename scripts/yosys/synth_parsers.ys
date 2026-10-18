@@ -1,0 +1,60 @@
+# =============================================================================
+# synth_parsers.ys — Yosys synthesis script for Parser modules
+# Project: BLAZE NGFW
+# =============================================================================
+
+# Read package
+read_verilog -sv rtl/pkg/blaze_pkg.sv
+
+# Read all parsers
+read_verilog -sv rtl/parser/frame_parser.sv
+read_verilog -sv rtl/parser/vlan_parser.sv
+read_verilog -sv rtl/parser/ipv4_parser.sv
+read_verilog -sv rtl/parser/ipv6_parser.sv
+read_verilog -sv rtl/parser/arp_parser.sv
+read_verilog -sv rtl/parser/tcp_parser.sv
+read_verilog -sv rtl/parser/udp_parser.sv
+read_verilog -sv rtl/parser/icmp_parser.sv
+read_verilog -sv rtl/parser/dns_parser.sv
+read_verilog -sv rtl/parser/http_parser.sv
+read_verilog -sv rtl/parser/tls_parser.sv
+read_verilog -sv rtl/parser/packet_buffer.sv
+
+# Synthesize frame_parser as example
+hierarchy -check -top frame_parser
+proc; opt; fsm; opt; memory; opt;
+techmap; opt;
+alumacc; share; opt;
+abc -lut 6; clean;
+stat;
+write_verilog -noattr synth_out/frame_parser_synth.v
+write_json synth_out/frame_parser_synth.json
+tee -o synth_out/frame_parser_stats.txt stat
+
+# Synthesize ipv4_parser
+design -reset
+read_verilog -sv rtl/pkg/blaze_pkg.sv
+read_verilog -sv rtl/parser/ipv4_parser.sv
+hierarchy -check -top ipv4_parser
+proc; opt; fsm; opt; memory; opt;
+techmap; opt;
+alumacc; share; opt;
+abc -lut 6; clean;
+stat;
+write_verilog -noattr synth_out/ipv4_parser_synth.v
+write_json synth_out/ipv4_parser_synth.json
+tee -o synth_out/ipv4_parser_stats.txt stat
+
+# Synthesize tcp_parser
+design -reset
+read_verilog -sv rtl/pkg/blaze_pkg.sv
+read_verilog -sv rtl/parser/tcp_parser.sv
+hierarchy -check -top tcp_parser
+proc; opt; fsm; opt; memory; opt;
+techmap; opt;
+alumacc; share; opt;
+abc -lut 6; clean;
+stat;
+write_verilog -noattr synth_out/tcp_parser_synth.v
+write_json synth_out/tcp_parser_synth.json
+tee -o synth_out/tcp_parser_stats.txt stat

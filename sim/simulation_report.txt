@@ -1,0 +1,81 @@
+================================================================================
+BLAZE NGFW — COMPLETE SIMULATION REPORT
+Generated: $(date)
+================================================================================
+
+PROJECT: BLAZE Next-Generation Firewall
+MODULE: M01 - Foundation Package & Interfaces
+
+================================================================================
+SIMULATION SUMMARY
+================================================================================
+
+Total Simulations Run: 5
+  - Python Package Verification
+  - Python Parser Verification  
+  - Python Pipeline Verification
+  - SystemVerilog Package Testbench
+  - SystemVerilog ACL Engine Testbench
+
+All simulations: PASSED ✓
+
+================================================================================
+1. PYTHON PACKAGE VERIFICATION (verify_pkg.py)
+================================================================================
+Tests: 30 chec==============================================================================ckBLAZE NGFW — COMPLETE SIMULATION REPORT
+Generated: $(date)
+==================?enerated: $(date)
+=====================? =================ns
+PROJECT: BLAZE Next-Generation Firewall
+MODULE: M01 - Foundation Package & IntionMODULE: M01 - Foundation Package & Ints
+
+=========================================== biSIMULATION SUMMARY
+=================================================================================
+Total Simulations Run: 5
+  - Python Package Verification
+  - Python Parser Ver(ve  - Python Package Veri==  - Python Parser Verification==  - Python Pipeline Verificatio==  - SystemVerilog Package Testb:   - SystemVerilog ACL Engine Testb ?All simulations: PASSED ✓
+
+=======eck
+=========================alc1. PYTHON PACKAGE VERIFICATION (verify_pkg.py)
+================================ad=============================================itTests: 30 chec=================================================================teGenerated: $(date)
+==================?enerated: $(date)
+=====================? =================ns
+PROJECT: BLAZE Next-Generation Fid
+=================ction (SYN, ACK, FIN, PSH, URG)
+  - VLAN PROJECT: BLAZE Next-Generation Firewall
+M==MODULE: M01 - Foundation Package & Int==
+=========================================== biSIMULATION SUMMARY
+=================================================================================Total Simulations Run: 5
+  - Python Package Verification
+  - Python Parser Ver(v4/  - Python Package Veriec  - Python Parser Ver(ve  - Pyrs
+=======eck
+=========================alc1. PYTHON PACKAGE VERIFICATION (verify_pkg.py)
+================================ad=============================================itTests: 30 chec============================ctl=========me================================ad===========================================================?enerated: $(date)
+=====================? =================ns
+PROJECT: BLAZE Next-Generation Fid
+=================ction (SYN, ACK, FIN, PSH, URG)
+  - VLAN PROJ=======================? ==============arPROJECT: BLAZE Next-Generation Fid
+====== A=================ction (SYN, ACK,Wa  - VLAN PROJECT: BLAZE Next-Generation FirewalteM==MODULE: fied:
+  ✓ Struct size verification (========================================== (===============================================================Fl  - Python Package Verification
+  - Python Parser Ver(v4/  - Python Package Veriec  - Python Parser Ver(Fe  - Python Parser Ver(v4/  - ins=======eck
+=========================alc1. PYTHON PACKAGE VERIFICATION (verify_pkg  =========st================================ad======================================= (=====================? =================ns
+PROJECT: BLAZE Next-Generation Fid
+=================ction (SYN, ACK, FIN, PSH, URG)
+  - VLAN PROJ=======================? ==============arPROJECT: BLAZE Next-Generation Fid
+====== A=================ction (S==PROJECT: BLAZE Next-Generation Fid
+======us=================ction (SYN, ACK,ru  - VLAN PROJ=======================? =========58====== A=================ction (SYN, ACK,Wa  - VLAN PROJECT: BLAZE Next-Generation Fire.x  ✓ Struct size verification (========================================== (===============================
+   - Python Parser Ver(v4/  - Python Package Veriec  - Python Parser Ver(Fe  - Python Parser Ver(v4/  - ins=======eck
+=========================alc1. PYTHON PACKAGE VERIFICAco=========================alc1. PYTHON PACKAGE VERIFICATION (verify_pkg  =========st================================coPROJECT: BLAZE Next-Generation Fid
+=================ction (SYN, ACK, FIN, PSH, URG)
+  - VLAN PROJ=======================? ==============arPROJECT: BLAZE Next-Generation Fid
+====== A=================c===================ction (SYN, ACK,==  - VLAN PROJ=======================? =========nd====== A=================ction (S==PROJECT: BLAZE Next-Generation Fid
+======us========= d======us=================ction (SYN, ACK,ru  - VLAN PROJ============ze   - Python Parser Ver(v4/  - Python Package Veriec  - Python Parser Ver(Fe  - Python Parser Ver(v4/  - ins=======eck
+=========================alc1. PYTHON PACKAGE VERIFICAco=========================alc1. PYTHON PACKAGE VERIFICATION (verify_pkg  =========st=========================rely st=========================alc1. PYTHON PACKAGE VERIFICAco=========================alc1. PYTHON PACKAGE VERIFICATION (===================ction (SYN, ACK, FIN, PSH, URG)
+  - VLAN PROJ=======================? ==============arPROJECT: BLAZE Next-Generation Fid
+====== A=================c===================ction (SYN, ACK,==  - V |  - VLAN PROJ=======================? =========--====== A=================c===================ction (SYN, ACK,==  - VLAN PROJ===========  ======us========= d======us=================ction (SYN, ACK,ru  - VLAN PROJ============ze   - Python Parser Ver(v4/  - Python Package Veriec  - Python Parser Ver(Fe  - Python Parsel =========================alc1. PYTHON PACKAGE VERIFICAco=========================alc1. PYTHON PACKAGE VERIFICATION (verify_pkg  =========st=========================rely st=========================alc1. PYT==  - VLAN PROJ=======================? ==============arPROJECT: BLAZE Next-Generation Fid
+====== A=================c===================ction (SYN, ACK,==  - V |  - VLAN PROJ=======================? =========--====== A=================c===================ction (SYN, ACK,==  - VLAN PROJ===========  ======us========= d======us============ v====== A=================c===================ction (SYN, ACK,==  - V |  - VLAN PROJ====in====== A=================c===================ction (SYN, ACK,==  - V |  - VLAN PROJ=======================? =========--====== A=================c===================ction (SYN, ACK,==  - VLAN PROJ===========  ======us========= d======us============ v====== A=================c===================ction (SYN, ACK,==  - V |  - VLAN PROJ====in====== A=================c===================ction (SYN, ACK,==  - V |  - VLAN PROJ=======================? =========--====== A=================c===================ction (SYN, ACK,==  - VLAN PROJ===========  ======us========= d======us============ v====== A=================c===================ction (SYN, ACK,==  - V |  - VLAN PROJ====in====== Aall downstream modules
+4. Build infrastructure validated
+
+================================================================================
+END OF REPORT
+================================================================================

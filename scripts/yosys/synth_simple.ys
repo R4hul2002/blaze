@@ -1,0 +1,32 @@
+# =============================================================================
+# synth_simple.ys — Simple synthesis test (flow_hash without full package)
+# =============================================================================
+
+# Read blaze package (contains necessary types)
+read_verilog -sv -Irtl/pkg rtl/pkg/blaze_pkg.sv
+
+# Read flow_hash module
+read_verilog -sv -Irtl/pkg rtl/session/flow_hash.sv
+
+# Elaborate design
+hierarchy -check -top flow_hash
+
+# High-level synthesis
+proc; opt; fsm; opt; memory; opt;
+
+# Technology mapping
+techmap; opt;
+
+# Arithmetic optimization
+alumacc; share; opt;
+
+# Map to 6-LUTs (typical FPGA)
+abc -lut 6; clean;
+
+# Statistics
+stat;
+
+# Write outputs
+write_verilog -noattr synth_out/flow_hash_synth.v
+write_json synth_out/flow_hash_synth.json
+tee -o synth_out/flow_hash_stats.txt stat

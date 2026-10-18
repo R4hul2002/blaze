@@ -1,0 +1,39 @@
+# =============================================================================
+# synth_crc32.ys — CRC32 Hash synthesis (pure Verilog-2001)
+# =============================================================================
+
+# Read the simple Verilog module
+read_verilog rtl/simple/crc32_hash.v
+
+# Set hierarchy
+hierarchy -check -top crc32_hash
+
+# Show design before synthesis
+show -prefix synth_out/crc32_before -format dot
+
+# Synthesis flow
+proc
+opt
+fsm
+opt
+memory
+opt
+techmap
+opt
+alumacc
+share
+opt
+abc -lut 6
+clean
+
+# Statistics
+stat
+tee -o synth_out/crc32_stats.txt stat
+
+# Show design after synthesis
+show -prefix synth_out/crc32_after -format dot
+
+# Write outputs
+write_verilog -noattr synth_out/crc32_synth.v
+write_json synth_out/crc32_synth.json
+

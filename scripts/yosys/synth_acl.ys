@@ -1,0 +1,43 @@
+# =============================================================================
+# synth_acl.ys — Yosys synthesis script for ACL Engine
+# Project: BLAZE NGFW
+# Target: Generic FPGA (can be retargeted to Xilinx/Intel)
+# =============================================================================
+
+# Read SystemVerilog files
+read_verilog -sv rtl/pkg/blaze_pkg.sv
+read_verilog -sv rtl/acl/acl_engine.sv
+
+# Elaborate design
+hierarchy -check -top acl_engine
+
+# The high-level stuff
+proc;       # Convert processes to netlists
+opt;        # Basic optimizations
+fsm;        # FSM extraction and optimization
+opt;        # More optimizations
+memory;     # Memory extraction
+opt;        # Even more optimizations
+
+# Map to internal cell library
+techmap;
+opt;
+
+# Map arithmetic cells
+alumacc;
+share;
+opt;
+
+# Map to LUTs
+abc -lut 6;
+clean;
+
+# Report statistics
+stat;
+stat -liberty /opt/homebrew/share/yosys/xilinx/cells_xtra.lib 2>/dev/null || stat;
+
+# Write output
+write_verilog -noattr synth_out/acl_engine_synth.v
+write_json synth_out/acl_engine_synth.json
+
+tee -o synth_out/acl_engine_stats.txt stat

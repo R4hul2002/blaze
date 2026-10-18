@@ -1,0 +1,18 @@
+17. Printing statistics.
+
+=== crc32_hash ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      709 wires
+     2207 wire bits
+       65 public wires
+     1529 public wire bits
+       10 ports
+      140 port bits
+      748 cells
+       36   $_DFFE_PN0P_
+       32   $_DFFE_PN1P_
+        2   $_DFF_PN0_
+      678   $lut
+

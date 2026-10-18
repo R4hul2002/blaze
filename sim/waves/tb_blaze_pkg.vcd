@@ -1,0 +1,130 @@
+$date
+	Fri Aug  7 00:04:32 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_blaze_pkg $end
+$var reg 1 ! clk $end
+$var reg 104 " fkey [103:0] $end
+$var reg 947 # meta [946:0] $end
+$var reg 1 $ rst_n $end
+$var reg 299 % rule [298:0] $end
+$var integer 32 & fail_count [31:0] $end
+$scope module axi4_bus $end
+$var wire 1 ! clk $end
+$var wire 1 $ rst_n $end
+$var parameter 32 ' ADDR_W $end
+$var parameter 2 ( BURST_FIXED $end
+$var parameter 2 ) BURST_INCR $end
+$var parameter 2 * BURST_WRAP $end
+$var parameter 32 + DATA_W $end
+$var parameter 32 , ID_W $end
+$var parameter 32 - LEN_W $end
+$var parameter 32 . STRB_W $end
+$var parameter 32 / USER_W $end
+$upscope $end
+$scope module axil_bus $end
+$var wire 1 ! clk $end
+$var wire 1 $ rst_n $end
+$var parameter 32 0 ADDR_W $end
+$var parameter 32 1 DATA_W $end
+$var parameter 2 2 RESP_DECERR $end
+$var parameter 2 3 RESP_EXOKAY $end
+$var parameter 2 4 RESP_OKAY $end
+$var parameter 2 5 RESP_SLVERR $end
+$var parameter 32 6 STRB_W $end
+$upscope $end
+$scope module axis_bus $end
+$var wire 1 ! clk $end
+$var wire 1 $ rst_n $end
+$var parameter 32 7 DATA_W $end
+$var parameter 32 8 KEEP_W $end
+$var parameter 32 9 USER_W $end
+$var reg 1 : tready $end
+$var reg 1 ; tvalid $end
+$scope function beat $end
+$upscope $end
+$upscope $end
+$scope module meta_bus $end
+$var wire 1 ! clk $end
+$var wire 1 $ rst_n $end
+$upscope $end
+$scope begin $unm_blk_3 $end
+$var reg 32 < s32 [31:0] $end
+$upscope $end
+$scope begin $unm_blk_5 $end
+$var reg 16 = s16 [15:0] $end
+$upscope $end
+$scope task check_eq $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b1 9
+b1000 8
+b1000000 7
+b100 6
+b10 5
+b0 4
+b1 3
+b11 2
+b100000 1
+b100000 0
+b1 /
+b1000 .
+b1000 -
+b1000 ,
+b1000000 +
+b10 *
+b1 )
+b0 (
+b100000 '
+$end
+#0
+$dumpvars
+bx =
+bx <
+x;
+x:
+b0 &
+bx %
+0$
+bx #
+bx "
+0!
+$end
+#4000
+1!
+#8000
+0!
+#12000
+1!
+#16000
+0!
+#20000
+1!
+#24000
+0!
+#28000
+b1000000000000000000001010000000000000000000000000111111110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001010000000000000101000000000110000000000000000000000000000000000000000000000000001 %
+b0 #
+b11000000101010000000000000000001110000001010100000000000000000100000010011010010000000000101000000000110 "
+b1000 =
+b1000 <
+1$
+1!
+#32000
+0!
+#36000
+1!
+#40000
+0!
+#44000
+1!
+#48000
+0!

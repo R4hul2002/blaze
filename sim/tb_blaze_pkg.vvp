@@ -1,0 +1,611 @@
+#! /opt/homebrew/Cellar/icarus-verilog/13.0/bin/vvp
+:ivl_version "13.0 (stable)" "(v13_0)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/system.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/va_math.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/13.0/lib/ivl/v2009.vpi";
+S_0x1017611e0 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0x101761360 .scope package, "blaze_pkg" "blaze_pkg" 3 12;
+ .timescale -9 -12;
+P_0x101770220 .param/l "ADDR_WIDTH" 0 3 19, C4<00000000000000000000000000100000>;
+P_0x101770260 .param/l "DATA_WIDTH" 0 3 17, C4<00000000000000000000000001000000>;
+P_0x1017702a0 .param/l "FLOW_TABLE_BITS" 0 3 37, C4<00000000000000000000000000010010>;
+P_0x1017702e0 .param/l "HASH_WIDTH" 0 3 40, C4<00000000000000000000000000100000>;
+P_0x101770320 .param/l "ICMP_TIMEOUT_CYC" 0 3 58, C4<01001010100000010111110010000000>;
+P_0x101770360 .param/l "ID_WIDTH" 0 3 20, C4<00000000000000000000000000001000>;
+P_0x1017703a0 .param/l "IPV4_WIDTH" 0 3 27, C4<00000000000000000000000000100000>;
+P_0x1017703e0 .param/l "IPV6_WIDTH" 0 3 28, C4<00000000000000000000000010000000>;
+P_0x101770420 .param/l "KEEP_WIDTH" 0 3 18, C4<00000000000000000000000000001000>;
+P_0x101770460 .param/l "LABEL_WIDTH" 0 3 41, C4<00000000000000000000000000010000>;
+P_0x1017704a0 .param/l "MAC_WIDTH" 0 3 26, C4<00000000000000000000000000110000>;
+P_0x1017704e0 .param/l "MAX_PKT_BYTES" 0 3 50, C4<00000000000000000010010000000000>;
+P_0x101770520 .param/l "MIN_PKT_BYTES" 0 3 51, C4<00000000000000000000000001000000>;
+P_0x101770560 .param/l "PKT_BUF_DEPTH" 0 3 49, C4<00000000000000000001000000000000>;
+P_0x1017705a0 .param/l "PORT_WIDTH" 0 3 29, C4<00000000000000000000000000010000>;
+P_0x1017705e0 .param/l "PROTO_WIDTH" 0 3 32, C4<00000000000000000000000000001000>;
+P_0x101770620 .param/l "QUEUE_WIDTH" 0 3 43, C4<00000000000000000000000000000100>;
+P_0x101770660 .param/l "RULE_TABLE_BITS" 0 3 38, C4<00000000000000000000000000010001>;
+P_0x1017706a0 .param/l "SESSION_BITS" 0 3 39, C4<00000000000000000000000000010010>;
+P_0x1017706e0 .param/l "SYN_TIMEOUT_CYC" 0 3 59, C4<01001010100000010111110010000000>;
+P_0x101770720 .param/l "TCP_TIMEOUT_CYC" 0 3 56, C4<10111011001011001001011100000000>;
+P_0x101770760 .param/l "TTL_WIDTH" 0 3 31, C4<00000000000000000000000000001000>;
+P_0x1017707a0 .param/l "UDP_TIMEOUT_CYC" 0 3 57, C4<11011111100001000111010110000000>;
+P_0x1017707e0 .param/l "USER_WIDTH" 0 3 21, C4<00000000000000000000000000000001>;
+P_0x101770820 .param/l "VLAN_STACK_DEPTH" 0 3 44, C4<00000000000000000000000000000010>;
+P_0x101770860 .param/l "VLAN_WIDTH" 0 3 30, C4<00000000000000000000000000001100>;
+P_0x1017708a0 .param/l "ZONE_WIDTH" 0 3 42, C4<00000000000000000000000000001000>;
+enum0xb2b061400 .enum4 (8)
+   "PROTO_ICMP" 8'b00000001,
+   "PROTO_TCP" 8'b00000110,
+   "PROTO_UDP" 8'b00010001,
+   "PROTO_ICMPv6" 8'b00111010,
+   "PROTO_OTHER" 8'b11111111
+ ;
+enum0xb2b061480 .enum4 (16)
+   "ETYPE_IPV4" 16'b0000100000000000,
+   "ETYPE_ARP" 16'b0000100000000110,
+   "ETYPE_VLAN" 16'b1000000100000000,
+   "ETYPE_QINQ" 16'b1000100010101000,
+   "ETYPE_IPV6" 16'b1000011011011101,
+   "ETYPE_OTHER" 16'b1111111111111111
+ ;
+enum0xb2b061500 .enum4 (4)
+   "TCP_CLOSED" 4'b0000,
+   "TCP_SYN_SENT" 4'b0001,
+   "TCP_SYN_RCVD" 4'b0010,
+   "TCP_ESTABLISHED" 4'b0011,
+   "TCP_FIN_WAIT1" 4'b0100,
+   "TCP_FIN_WAIT2" 4'b0101,
+   "TCP_CLOSE_WAIT" 4'b0110,
+   "TCP_CLOSING" 4'b0111,
+   "TCP_LAST_ACK" 4'b1000,
+   "TCP_TIME_WAIT" 4'b1001
+ ;
+enum0xb2b061580 .enum4 (4)
+   "ACTION_ACCEPT" 4'b0000,
+   "ACTION_DROP" 4'b0001,
+   "ACTION_REJECT" 4'b0010,
+   "ACTION_LOG" 4'b0011,
+   "ACTION_MIRROR" 4'b0100,
+   "ACTION_MODIFY" 4'b0101,
+   "ACTION_QOS" 4'b0110,
+   "ACTION_NAT" 4'b0111,
+   "ACTION_LIMIT" 4'b1000,
+   "ACTION_INSPECT" 4'b1001
+ ;
+enum0xb2b061600 .enum4 (2)
+   "DIR_INGRESS" 2'b00,
+   "DIR_EGRESS" 2'b01,
+   "DIR_INTERNAL" 2'b10,
+   "DIR_UNKNOWN" 2'b11
+ ;
+enum0xb2b061680 .enum4 (3)
+   "THREAT_NONE" 3'b000,
+   "THREAT_LOW" 3'b001,
+   "THREAT_MEDIUM" 3'b010,
+   "THREAT_HIGH" 3'b011,
+   "THREAT_CRITICAL" 3'b100
+ ;
+enum0xb2b061700 .enum4 (8)
+   "APP_UNKNOWN" 8'b00000000,
+   "APP_HTTP" 8'b00000001,
+   "APP_HTTPS" 8'b00000010,
+   "APP_DNS" 8'b00000011,
+   "APP_SSH" 8'b00000100,
+   "APP_FTP" 8'b00000101,
+   "APP_SMTP" 8'b00000110,
+   "APP_POP3" 8'b00000111,
+   "APP_IMAP" 8'b00001000,
+   "APP_DHCP" 8'b00001001,
+   "APP_TELNET" 8'b00001010,
+   "APP_SNMP" 8'b00001011,
+   "APP_NTP" 8'b00001100,
+   "APP_LDAP" 8'b00001101,
+   "APP_RDP" 8'b00001110,
+   "APP_CUSTOM" 8'b11111111
+ ;
+S_0x101760f40 .scope autofunction.vec4.s16, "bswap16" "bswap16" 3 366, 3 366 0, S_0x101761360;
+ .timescale -9 -12;
+; Variable bswap16 is vec4 return value of scope S_0x101760f40
+v0x10176b540_0 .var "d", 15 0;
+TD_blaze_pkg.bswap16 ;
+    %load/vec4 v0x10176b540_0;
+    %parti/s 8, 0, 2;
+    %load/vec4 v0x10176b540_0;
+    %parti/s 8, 8, 5;
+    %concat/vec4; draw_concat_vec4
+    %ret/vec4 0, 0, 16;  Assign to bswap16 (store_vec4_to_lval)
+    %disable/flow S_0x101760f40;
+    %end;
+S_0x10175fae0 .scope autofunction.vec4.s32, "bswap32" "bswap32" 3 362, 3 362 0, S_0x101761360;
+ .timescale -9 -12;
+; Variable bswap32 is vec4 return value of scope S_0x10175fae0
+v0x10176b200_0 .var "d", 31 0;
+TD_blaze_pkg.bswap32 ;
+    %load/vec4 v0x10176b200_0;
+    %parti/s 8, 0, 2;
+    %load/vec4 v0x10176b200_0;
+    %parti/s 8, 8, 5;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v0x10176b200_0;
+    %parti/s 8, 16, 6;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v0x10176b200_0;
+    %parti/s 8, 24, 6;
+    %concat/vec4; draw_concat_vec4
+    %ret/vec4 0, 0, 32;  Assign to bswap32 (store_vec4_to_lval)
+    %disable/flow S_0x10175fae0;
+    %end;
+S_0x10175fc60 .scope autofunction.vec4.s4, "onehot2bin" "onehot2bin" 3 370, 3 370 0, S_0x101761360;
+ .timescale -9 -12;
+v0x10176a9e0_0 .var "idx", 3 0;
+v0x101769f60_0 .var "oh", 15 0;
+; Variable onehot2bin is vec4 return value of scope S_0x10175fc60
+TD_blaze_pkg.onehot2bin ;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v0x10176a9e0_0, 0, 4;
+    %fork t_1, S_0x1017604e0;
+    %jmp t_0;
+    .scope S_0x1017604e0;
+t_1 ;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x101769800_0, 0, 32;
+T_2.0 ; Top of for-loop
+    %load/vec4 v0x101769800_0;
+    %cmpi/s 16, 0, 32;
+	  %jmp/0xz T_2.1, 5;
+    %load/vec4 v0x101769f60_0;
+    %load/vec4 v0x101769800_0;
+    %part/s 1;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_2.3, 8;
+    %load/vec4 v0x101769800_0;
+    %parti/s 4, 0, 2;
+    %store/vec4 v0x10176a9e0_0, 0, 4;
+T_2.3 ;
+T_2.2 ; for-loop step statement
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x101769800_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %cast2;
+    %store/vec4 v0x101769800_0, 0, 32;
+    %jmp T_2.0;
+T_2.1 ; for-loop exit label
+    %end;
+    .scope S_0x10175fc60;
+t_0 %join;
+    %load/vec4 v0x10176a9e0_0;
+    %ret/vec4 0, 0, 4;  Assign to onehot2bin (store_vec4_to_lval)
+    %disable/flow S_0x10175fc60;
+    %end;
+S_0x1017604e0 .scope autobegin, "$ivl_for_loop0" "$ivl_for_loop0" 3 373, 3 373 0, S_0x10175fc60;
+ .timescale -9 -12;
+v0x101769800_0 .var/2s "i", 31 0;
+S_0x101760dc0 .scope module, "tb_blaze_pkg" "tb_blaze_pkg" 4 10;
+ .timescale -9 -12;
+v0xb2bc10aa0_0 .var "clk", 0 0;
+v0xb2bc10b40_0 .var/2s "fail_count", 31 0;
+v0xb2bc10be0_0 .var "fkey", 103 0;
+v0xb2bc10c80_0 .var "meta", 946 0;
+v0xb2bc10d20_0 .var "rst_n", 0 0;
+v0xb2bc10dc0_0 .var "rule", 298 0;
+E_0xb2b07c500 .event posedge, v0xb2bc101e0_0;
+S_0x101760660 .scope begin, "$unm_blk_3" "$unm_blk_3" 4 63, 4 63 0, S_0x101760dc0;
+ .timescale -9 -12;
+v0xb2bc100a0_0 .var "s32", 31 0;
+S_0x101760980 .scope begin, "$unm_blk_5" "$unm_blk_5" 4 69, 4 69 0, S_0x101760dc0;
+ .timescale -9 -12;
+v0xb2bc10140_0 .var "s16", 15 0;
+S_0x101760b00 .scope module, "axi4_bus" "axi4_if" 4 19, 5 12 0, S_0x101760dc0;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "rst_n";
+P_0x10176cca0 .param/l "ADDR_W" 0 5 13, C4<00000000000000000000000000100000>;
+P_0x10176cce0 .param/l "BURST_FIXED" 1 5 111, C4<00>;
+P_0x10176cd20 .param/l "BURST_INCR" 1 5 112, C4<01>;
+P_0x10176cd60 .param/l "BURST_WRAP" 1 5 113, C4<10>;
+P_0x10176cda0 .param/l "DATA_W" 0 5 14, C4<00000000000000000000000001000000>;
+P_0x10176cde0 .param/l "ID_W" 0 5 15, C4<00000000000000000000000000001000>;
+P_0x10176ce20 .param/l "LEN_W" 0 5 16, C4<00000000000000000000000000001000>;
+P_0x10176ce60 .param/l "STRB_W" 1 5 22, C4<00000000000000000000000000001000>;
+P_0x10176cea0 .param/l "USER_W" 0 5 17, C4<00000000000000000000000000000001>;
+v0xb2bc101e0_0 .net "clk", 0 0, v0xb2bc10aa0_0;  1 drivers
+v0xb2bc10280_0 .net "rst_n", 0 0, v0xb2bc10d20_0;  1 drivers
+S_0xb2a800000 .scope module, "axil_bus" "axil_if" 4 18, 6 14 0, S_0x101760dc0;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "rst_n";
+P_0x10176c4e0 .param/l "ADDR_W" 0 6 15, C4<00000000000000000000000000100000>;
+P_0x10176c520 .param/l "DATA_W" 0 6 16, C4<00000000000000000000000000100000>;
+P_0x10176c560 .param/l "RESP_DECERR" 1 6 86, C4<11>;
+P_0x10176c5a0 .param/l "RESP_EXOKAY" 1 6 84, C4<01>;
+P_0x10176c5e0 .param/l "RESP_OKAY" 1 6 83, C4<00>;
+P_0x10176c620 .param/l "RESP_SLVERR" 1 6 85, C4<10>;
+P_0x10176c660 .param/l "STRB_W" 1 6 21, C4<00000000000000000000000000000100>;
+v0xb2bc10320_0 .net "clk", 0 0, v0xb2bc10aa0_0;  alias, 1 drivers
+v0xb2bc103c0_0 .net "rst_n", 0 0, v0xb2bc10d20_0;  alias, 1 drivers
+S_0xb2a800180 .scope module, "axis_bus" "axis_if" 4 17, 7 14 0, S_0x101760dc0;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "rst_n";
+P_0x10176c6a0 .param/l "DATA_W" 0 7 15, C4<00000000000000000000000001000000>;
+P_0x10176c6e0 .param/l "KEEP_W" 1 7 21, C4<00000000000000000000000000001000>;
+P_0x10176c720 .param/l "USER_W" 0 7 16, C4<00000000000000000000000000000001>;
+v0xb2bc10500_0 .net "clk", 0 0, v0xb2bc10aa0_0;  alias, 1 drivers
+v0xb2bc105a0_0 .net "rst_n", 0 0, v0xb2bc10d20_0;  alias, 1 drivers
+v0xb2bc10640_0 .var "tready", 0 0;
+v0xb2bc106e0_0 .var "tvalid", 0 0;
+S_0xb2a800300 .scope autofunction.vec4.s1, "beat" "beat" 7 51, 7 51 0, S_0xb2a800180;
+ .timescale -9 -12;
+; Variable beat is vec4 return value of scope S_0xb2a800300
+TD_tb_blaze_pkg.axis_bus.beat ;
+    %load/vec4 v0xb2bc106e0_0;
+    %load/vec4 v0xb2bc10640_0;
+    %and;
+    %ret/vec4 0, 0, 1;  Assign to beat (store_vec4_to_lval)
+    %disable/flow S_0xb2a800300;
+    %end;
+S_0xb2a800480 .scope autotask, "check_eq" "check_eq" 4 28, 4 28 0, S_0x101760dc0;
+ .timescale -9 -12;
+v0xb2bc10780_0 .var/2s "expected", 31 0;
+v0xb2bc10820_0 .var/2s "got", 31 0;
+v0xb2bc108c0_0 .var/str "name";
+TD_tb_blaze_pkg.check_eq ;
+    %load/vec4 v0xb2bc10820_0;
+    %load/vec4 v0xb2bc10780_0;
+    %cmp/ne;
+    %jmp/0xz  T_4.5, 6;
+    %vpi_call/w 4 30 "$error", "FAIL [%s]: got=%0d expected=%0d", v0xb2bc108c0_0, v0xb2bc10820_0, v0xb2bc10780_0 {0 0 0};
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0xb2bc10b40_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %cast2;
+    %store/vec4 v0xb2bc10b40_0, 0, 32;
+    %jmp T_4.6;
+T_4.5 ;
+    %vpi_call/w 4 33 "$display", "PASS [%s]: %0d bits", v0xb2bc108c0_0, v0xb2bc10820_0 {0 0 0};
+T_4.6 ;
+    %end;
+S_0xb2a800600 .scope module, "meta_bus" "meta_if" 4 20, 8 14 0, S_0x101760dc0;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "rst_n";
+v0xb2bc10960_0 .net "clk", 0 0, v0xb2bc10aa0_0;  alias, 1 drivers
+v0xb2bc10a00_0 .net "rst_n", 0 0, v0xb2bc10d20_0;  alias, 1 drivers
+    .scope S_0x101760dc0;
+T_5 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0xb2bc10aa0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0xb2bc10d20_0, 0, 1;
+    %end;
+    .thread T_5, $init;
+    .scope S_0x101760dc0;
+T_6 ;
+    %delay 4000, 0;
+    %load/vec4 v0xb2bc10aa0_0;
+    %inv;
+    %store/vec4 v0xb2bc10aa0_0, 0, 1;
+    %jmp T_6;
+    .thread T_6;
+    .scope S_0x101760dc0;
+T_7 ;
+    %vpi_call/w 4 37 "$dumpfile", "waves/tb_blaze_pkg.vcd" {0 0 0};
+    %vpi_call/w 4 38 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x101760dc0 {0 0 0};
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0xb2bc10b40_0, 0, 32;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0xb2bc10d20_0, 0, 1;
+    %pushi/vec4 4, 0, 32;
+T_7.0 %dup/vec4;
+    %cmpi/s 0, 0, 32;
+    %jmp/1xz T_7.1, 5;
+    %jmp/1 T_7.1, 4;
+    %subi 1, 0, 32;
+    %wait E_0xb2b07c500;
+    %jmp T_7.0;
+T_7.1 ;
+    %pop/vec4 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0xb2bc10d20_0, 0, 1;
+    %vpi_call/w 4 45 "$display", "\012=== Struct Size Verification ===" {0 0 0};
+    %alloc S_0xb2a800480;
+    %pushi/str "flow_key_t bits";
+    %store/str v0xb2bc108c0_0;
+    %pushi/vec4 104, 0, 32;
+    %store/vec4 v0xb2bc10820_0, 0, 32;
+    %pushi/vec4 104, 0, 32;
+    %store/vec4 v0xb2bc10780_0, 0, 32;
+    %fork TD_tb_blaze_pkg.check_eq, S_0xb2a800480;
+    %join;
+    %free S_0xb2a800480;
+    %alloc S_0xb2a800480;
+    %pushi/str "vlan_tag_t bits";
+    %store/str v0xb2bc108c0_0;
+    %pushi/vec4 16, 0, 32;
+    %store/vec4 v0xb2bc10820_0, 0, 32;
+    %pushi/vec4 16, 0, 32;
+    %store/vec4 v0xb2bc10780_0, 0, 32;
+    %fork TD_tb_blaze_pkg.check_eq, S_0xb2a800480;
+    %join;
+    %free S_0xb2a800480;
+    %alloc S_0xb2a800480;
+    %pushi/str "tcp_flags_t bits";
+    %store/str v0xb2bc108c0_0;
+    %pushi/vec4 8, 0, 32;
+    %store/vec4 v0xb2bc10820_0, 0, 32;
+    %pushi/vec4 8, 0, 32;
+    %store/vec4 v0xb2bc10780_0, 0, 32;
+    %fork TD_tb_blaze_pkg.check_eq, S_0xb2a800480;
+    %join;
+    %free S_0xb2a800480;
+    %vpi_call/w 4 50 "$display", "\012=== Enum Encoding Verification ===" {0 0 0};
+    %alloc S_0xb2a800480;
+    %pushi/str "PROTO_TCP";
+    %store/str v0xb2bc108c0_0;
+    %pushi/vec4 6, 0, 32;
+    %store/vec4 v0xb2bc10820_0, 0, 32;
+    %pushi/vec4 6, 0, 32;
+    %store/vec4 v0xb2bc10780_0, 0, 32;
+    %fork TD_tb_blaze_pkg.check_eq, S_0xb2a800480;
+    %join;
+    %free S_0xb2a800480;
+    %alloc S_0xb2a800480;
+    %pushi/str "PROTO_UDP";
+    %store/str v0xb2bc108c0_0;
+    %pushi/vec4 17, 0, 32;
+    %store/vec4 v0xb2bc10820_0, 0, 32;
+    %pushi/vec4 17, 0, 32;
+    %store/vec4 v0xb2bc10780_0, 0, 32;
+    %fork TD_tb_blaze_pkg.check_eq, S_0xb2a800480;
+    %join;
+    %free S_0xb2a800480;
+    %alloc S_0xb2a800480;
+    %pushi/str "PROTO_ICMP";
+    %store/str v0xb2bc108c0_0;
+    %pushi/vec4 1, 0, 32;
+    %store/vec4 v0xb2bc10820_0, 0, 32;
+    %pushi/vec4 1, 0, 32;
+    %store/vec4 v0xb2bc10780_0, 0, 32;
+    %fork TD_tb_blaze_pkg.check_eq, S_0xb2a800480;
+    %join;
+    %free S_0xb2a800480;
+    %alloc S_0xb2a800480;
+    %pushi/str "ETYPE_IPV4";
+    %store/str v0xb2bc108c0_0;
+    %pushi/vec4 2048, 0, 32;
+    %store/vec4 v0xb2bc10820_0, 0, 32;
+    %pushi/vec4 2048, 0, 32;
+    %store/vec4 v0xb2bc10780_0, 0, 32;
+    %fork TD_tb_blaze_pkg.check_eq, S_0xb2a800480;
+    %join;
+    %free S_0xb2a800480;
+    %alloc S_0xb2a800480;
+    %pushi/str "ETYPE_ARP";
+    %store/str v0xb2bc108c0_0;
+    %pushi/vec4 2054, 0, 32;
+    %store/vec4 v0xb2bc10820_0, 0, 32;
+    %pushi/vec4 2054, 0, 32;
+    %store/vec4 v0xb2bc10780_0, 0, 32;
+    %fork TD_tb_blaze_pkg.check_eq, S_0xb2a800480;
+    %join;
+    %free S_0xb2a800480;
+    %alloc S_0xb2a800480;
+    %pushi/str "ETYPE_VLAN";
+    %store/str v0xb2bc108c0_0;
+    %pushi/vec4 33024, 0, 32;
+    %store/vec4 v0xb2bc10820_0, 0, 32;
+    %pushi/vec4 33024, 0, 32;
+    %store/vec4 v0xb2bc10780_0, 0, 32;
+    %fork TD_tb_blaze_pkg.check_eq, S_0xb2a800480;
+    %join;
+    %free S_0xb2a800480;
+    %alloc S_0xb2a800480;
+    %pushi/str "ETYPE_IPV6";
+    %store/str v0xb2bc108c0_0;
+    %pushi/vec4 34525, 0, 32;
+    %store/vec4 v0xb2bc10820_0, 0, 32;
+    %pushi/vec4 34525, 0, 32;
+    %store/vec4 v0xb2bc10780_0, 0, 32;
+    %fork TD_tb_blaze_pkg.check_eq, S_0xb2a800480;
+    %join;
+    %free S_0xb2a800480;
+    %alloc S_0xb2a800480;
+    %pushi/str "ACTION_ACCEPT";
+    %store/str v0xb2bc108c0_0;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0xb2bc10820_0, 0, 32;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0xb2bc10780_0, 0, 32;
+    %fork TD_tb_blaze_pkg.check_eq, S_0xb2a800480;
+    %join;
+    %free S_0xb2a800480;
+    %alloc S_0xb2a800480;
+    %pushi/str "ACTION_DROP";
+    %store/str v0xb2bc108c0_0;
+    %pushi/vec4 1, 0, 32;
+    %store/vec4 v0xb2bc10820_0, 0, 32;
+    %pushi/vec4 1, 0, 32;
+    %store/vec4 v0xb2bc10780_0, 0, 32;
+    %fork TD_tb_blaze_pkg.check_eq, S_0xb2a800480;
+    %join;
+    %free S_0xb2a800480;
+    %alloc S_0xb2a800480;
+    %pushi/str "TCP_ESTABLISHED";
+    %store/str v0xb2bc108c0_0;
+    %pushi/vec4 3, 0, 32;
+    %store/vec4 v0xb2bc10820_0, 0, 32;
+    %pushi/vec4 3, 0, 32;
+    %store/vec4 v0xb2bc10780_0, 0, 32;
+    %fork TD_tb_blaze_pkg.check_eq, S_0xb2a800480;
+    %join;
+    %free S_0xb2a800480;
+    %vpi_call/w 4 62 "$display", "\012=== Helper Function Verification ===" {0 0 0};
+    %fork t_3, S_0x101760660;
+    %jmp t_2;
+    .scope S_0x101760660;
+t_3 ;
+    %alloc S_0x10175fae0;
+    %pushi/vec4 134217728, 0, 32;
+    %store/vec4 v0x10176b200_0, 0, 32;
+    %callf/vec4 TD_blaze_pkg.bswap32, S_0x10175fae0;
+    %free S_0x10175fae0;
+    %store/vec4 v0xb2bc100a0_0, 0, 32;
+    %load/vec4 v0xb2bc100a0_0;
+    %cmpi/ne 8, 0, 32;
+    %jmp/0xz  T_7.2, 6;
+    %vpi_call/w 4 66 "$error", "FAIL [bswap32]: got=%08h", v0xb2bc100a0_0 {0 0 0};
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0xb2bc10b40_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %cast2;
+    %store/vec4 v0xb2bc10b40_0, 0, 32;
+    %jmp T_7.3;
+T_7.2 ;
+    %vpi_call/w 4 67 "$display", "PASS [bswap32]" {0 0 0};
+T_7.3 ;
+    %end;
+    .scope S_0x101760dc0;
+t_2 %join;
+    %fork t_5, S_0x101760980;
+    %jmp t_4;
+    .scope S_0x101760980;
+t_5 ;
+    %alloc S_0x101760f40;
+    %pushi/vec4 2048, 0, 16;
+    %store/vec4 v0x10176b540_0, 0, 16;
+    %callf/vec4 TD_blaze_pkg.bswap16, S_0x101760f40;
+    %free S_0x101760f40;
+    %store/vec4 v0xb2bc10140_0, 0, 16;
+    %load/vec4 v0xb2bc10140_0;
+    %cmpi/ne 8, 0, 16;
+    %jmp/0xz  T_7.4, 6;
+    %vpi_call/w 4 72 "$error", "FAIL [bswap16]: got=%04h", v0xb2bc10140_0 {0 0 0};
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0xb2bc10b40_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %cast2;
+    %store/vec4 v0xb2bc10b40_0, 0, 32;
+    %jmp T_7.5;
+T_7.4 ;
+    %vpi_call/w 4 73 "$display", "PASS [bswap16]" {0 0 0};
+T_7.5 ;
+    %end;
+    .scope S_0x101760dc0;
+t_4 %join;
+    %vpi_call/w 4 76 "$display", "\012=== Flow Key Construction ===" {0 0 0};
+    %pushi/vec4 3232235521, 0, 32;
+    %ix/load 4, 72, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0xb2bc10be0_0, 4, 32;
+    %pushi/vec4 3232235522, 0, 32;
+    %ix/load 4, 40, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0xb2bc10be0_0, 4, 32;
+    %pushi/vec4 1234, 0, 16;
+    %ix/load 4, 24, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0xb2bc10be0_0, 4, 16;
+    %pushi/vec4 80, 0, 16;
+    %ix/load 4, 8, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0xb2bc10be0_0, 4, 16;
+    %pushi/vec4 6, 0, 8;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0xb2bc10be0_0, 4, 8;
+    %vpi_call/w 4 83 "$display", "PASS [flow_key construction]: src=%h dst=%h sport=%0d dport=%0d", &PV<v0xb2bc10be0_0, 72, 32>, &PV<v0xb2bc10be0_0, 40, 32>, &PV<v0xb2bc10be0_0, 24, 16>, &PV<v0xb2bc10be0_0, 8, 16> {0 0 0};
+    %vpi_call/w 4 86 "$display", "\012=== Metadata Zero Init ===" {0 0 0};
+    %pushi/vec4 0, 0, 947;
+    %store/vec4 v0xb2bc10c80_0, 0, 947;
+    %load/vec4 v0xb2bc10c80_0;
+    %parti/u 4, 116, 32;
+    %cmpi/ne 0, 0, 4;
+    %jmp/0xz  T_7.6, 6;
+    %vpi_call/w 4 88 "$error", "FAIL [meta zero init action]" {0 0 0};
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0xb2bc10b40_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %cast2;
+    %store/vec4 v0xb2bc10b40_0, 0, 32;
+    %jmp T_7.7;
+T_7.6 ;
+    %vpi_call/w 4 89 "$display", "PASS [meta zero init]" {0 0 0};
+T_7.7 ;
+    %vpi_call/w 4 91 "$display", "\012=== Rule Entry Construction ===" {0 0 0};
+    %pushi/vec4 0, 0, 299;
+    %store/vec4 v0xb2bc10dc0_0, 0, 299;
+    %pushi/vec4 1, 0, 32;
+    %ix/load 4, 267, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0xb2bc10dc0_0, 4, 32;
+    %pushi/vec4 167772160, 0, 32;
+    %ix/load 4, 219, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0xb2bc10dc0_0, 4, 32;
+    %pushi/vec4 4278190080, 0, 32;
+    %ix/load 4, 187, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0xb2bc10dc0_0, 4, 32;
+    %pushi/vec4 6, 0, 8;
+    %ix/load 4, 51, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0xb2bc10dc0_0, 4, 8;
+    %pushi/vec4 80, 0, 16;
+    %ix/load 4, 75, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0xb2bc10dc0_0, 4, 16;
+    %pushi/vec4 80, 0, 16;
+    %ix/load 4, 59, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0xb2bc10dc0_0, 4, 16;
+    %pushi/vec4 0, 0, 4;
+    %ix/load 4, 39, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0xb2bc10dc0_0, 4, 4;
+    %pushi/vec4 1, 0, 1;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0xb2bc10dc0_0, 4, 1;
+    %vpi_call/w 4 101 "$display", "PASS [rule entry]: id=%0d", &PV<v0xb2bc10dc0_0, 267, 32> {0 0 0};
+    %vpi_call/w 4 103 "$display", "\012=== Test Summary ===" {0 0 0};
+    %load/vec4 v0xb2bc10b40_0;
+    %cmpi/e 0, 0, 32;
+    %jmp/0xz  T_7.8, 4;
+    %vpi_call/w 4 104 "$display", "ALL TESTS PASSED" {0 0 0};
+    %jmp T_7.9;
+T_7.8 ;
+    %vpi_call/w 4 105 "$error", "%0d TEST(S) FAILED", v0xb2bc10b40_0 {0 0 0};
+T_7.9 ;
+    %delay 20000, 0;
+    %vpi_call/w 4 108 "$finish" {0 0 0};
+    %end;
+    .thread T_7;
+    .scope S_0x101760dc0;
+T_8 ;
+    %delay 10000000, 0;
+    %vpi_call/w 4 111 "$error", "TIMEOUT" {0 0 0};
+    %vpi_call/w 4 111 "$finish" {0 0 0};
+    %end;
+    .thread T_8;
+# The file index is used to find the file name in the following table.
+:file_names 9;
+    "N/A";
+    "<interactive>";
+    "-";
+    "./blaze_pkg_sim_fixed.sv";
+    "run_tb_blaze_pkg.sv";
+    "./axi4_if_fixed.sv";
+    "./axil_if_fixed.sv";
+    "./axis_if_fixed.sv";
+    "./meta_if_fixed.sv";

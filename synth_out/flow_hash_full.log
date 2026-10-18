@@ -1,0 +1,13 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.68+post (git sha1 c12172fbae8af5e20f6fb52e3d4e92d56ed587b6, Release, AppleClang clang++ 21.0.0.21000101)
+
+-- Executing script file `scripts/yosys/synth_flow_hash.ys' --
+
+1. Executing Verilog-2005 frontend: <<EOT
+Parsing SystemVerilog input from `<<EOT' to AST representation.
+<<EOT:31: ERROR: syntax error, unexpected TOK_IMPORT
